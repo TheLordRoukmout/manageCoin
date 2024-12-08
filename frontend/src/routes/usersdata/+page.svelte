@@ -25,14 +25,14 @@
   {#if loading}
 
     <p>Chargement des données...</p>
-  
+    
   {:else}
 
     <ul>
 
       {#each users as user}
         <li>
-          {user.firstName} {user.lastName}
+          {user.firstName} {user.lastName} {user.email}
         </li>
       {/each}
 
