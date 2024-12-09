@@ -1,5 +1,5 @@
 <script>
-  
+  import MainMenu from "../../components/mainMenu.svelte";
   import { onMount } from "svelte";
   import axios from 'axios';
 
@@ -20,6 +20,7 @@
 </script>
 
 <main>
+  <MainMenu/>
   <h1>Liste des utilisateurs</h1>
 
   {#if loading}
@@ -45,5 +46,7 @@
 </main>
 
 <style>
-
+    *{
+        display: flex;
+    }
 </style>
