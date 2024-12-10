@@ -9,7 +9,7 @@
   onMount(async () => {
     try {
       const response = await axios.get('http://127.0.0.1:5000/api/users');
-      users = response.data.users;
+      users = response.data;
     }catch (error){
       console.log("Erreur lors de la récupération des utilisateurs.", error);
     }finally {
@@ -32,9 +32,7 @@
     <ul>
 
       {#each users as user}
-        <li>
-          {user.firstName} {user.lastName} {user.email}
-        </li>
+        <p>Bonjour {user.firstName}</p>
       {/each}
 
     </ul>

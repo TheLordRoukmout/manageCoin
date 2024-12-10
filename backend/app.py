@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+#from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_cors import CORS
 from scriptData import get_user_from_json
 from logInScript import checkLog  # La fonction checkLog doit exister dans ce fichier
@@ -7,17 +7,17 @@ from logInScript import checkLog  # La fonction checkLog doit exister dans ce fi
 app = Flask(__name__)
 CORS(app)
 
-app.config["JWT_SECRET_KEY"] = "secret_key_here"  # Remplace par une vraie clé secrète
-jwt = JWTManager(app)
+#app.config["JWT_SECRET_KEY"] = "secret_key_here"  # Remplace par une vraie clé secrète
+#jwt = JWTManager(app)
 
 @app.route('/')
 def home():
     return render_template("index.html")  # Page d'accueil
 
 @app.route('/api/users', methods=['GET'])
-@jwt_required()  # Cette route est protégée par un token JWT
+#@jwt_required()  # Cette route est protégée par un token JWT
 def get_data():
-    current_user = get_jwt_identity()  # Récupérer l'utilisateur connecté à partir du token JWT
+    #current_user = get_jwt_identity()  # Récupérer l'utilisateur connecté à partir du token JWT
     users = get_user_from_json()  # Récupérer les utilisateurs depuis le fichier JSON
 
     return jsonify(users)

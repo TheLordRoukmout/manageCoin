@@ -1,6 +1,32 @@
 {
-    "users":[
-        {"id": 1, "firstName": "Dymtri", "lastName": "Bourgaux", "email": "dym@test.com", "password": "test1232"},
-        {"id": 2, "firstName": "Alexandre", "lastName": "Rahir", "email": "alex@test.com", "password": "456test1232"}
+    "users": [
+      {
+        "id": 1,
+        "firstName": "Dymtri",
+        "lastName": "Bourgaux",
+        "email": "dym@test.com",
+        "password": "test1232",
+        "coinCollection": [
+          { "coin": "BTC", "quantity": 8 },
+          { "coin": "SUI", "quantity": 150 },
+          { "coin": "SOL", "quantity": 21 }
+        ],
+        "wallet": [
+            {"n°": 1, "WalletName": "Wallet MetaMask"},
+            {"n°": 2, "WalletName": "Wallet Phantom"},
+            {"n°": 3, "WalletName": "Wallet Ledger"},
+            {"n°": 4, "WalletName": "Wallet Cosmos"},
+            {"n°": 5, "WalletName": "Wallet Nautilus"},
+            {"n°": 6, "WalletName": "Wallet Coinbase"},
+            {"n°": 7, "WalletName": "Wallet Binance"}
+        ],
+        "associate": [
+            {"n°": 1, "associateName": "David"},
+            {"n°": 1, "associateName": "Clémentine"},
+            {"n°": 1, "associateName": "Ambre"},
+            {"n°": 1, "associateName": "Fabien"}
+        ]
+      }
     ]
-}
+  }
+  
