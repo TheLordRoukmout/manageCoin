@@ -35,12 +35,13 @@
 .container_nav {
     width: 80px;
     height: 100vh; /* Occupe toute la hauteur de la fenêtre */
-    background-color: royalblue;
+    background: linear-gradient(90deg, #2288FF 20%, #C5DFFD 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Assure une répartition égale de l'espace entre les éléments */
     align-items: center;
     overflow: hidden;
+    border-radius: 0 40px 0 0;
 }
 
 .nav_content_top {
@@ -62,8 +63,8 @@
 .nav_content_top a, .nav_content_bot a {
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.164);
-    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+    background-color: #ffffff71;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.18);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -77,7 +78,7 @@
 }
 
 .nav_content_top span, .nav_content_bot span {
-    color: aliceblue;
+    color: rgb(255, 255, 255);
 }
 
 </style>

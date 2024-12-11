@@ -1,11 +1,13 @@
 <script>
     import './app.css';
     import MainMenu from '../components/mainMenu.svelte';
+    import ListeCoin from '../components/listeCoin.svelte';
     import { currentTime } from '../lib/time.js';
     import { onMount } from "svelte";
     import axios from 'axios';
 
-    let users = []
+    let users = [];
+    let coinList = [];
     let loading = true;
 
 
@@ -19,6 +21,8 @@
         loading = false;
         }
     })
+
+
 
 
 </script>
@@ -87,6 +91,17 @@
 
 
         </div>
+
+        <div class="containerSecondTier">
+
+            <div class="listCoin">
+                <div class="containerListCoint">
+                    <ListeCoin/>
+                </div>
+                
+            </div>
+        </div>
+
     </div>
 
 </main>
@@ -127,10 +142,10 @@
         margin-right: 5px;
         margin-left: 5px;
         border-radius: 10px;
-        background-color: royalblue;
+        background: linear-gradient(90deg, #2288FF 5%, #C5DFFD 100%);
         font-family: Jaldi, sans-serif;
         color: #fff;
-        box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.062);
         max-width: 300px;
         min-width: 150px;
     }
@@ -147,8 +162,8 @@
         width: 90%;
         height: 160px;
         border-radius: 10px;
-        background-color: royalblue;
-        box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+        background: linear-gradient(90deg, #56a4fd 1%, #fbfdff 100%);
+        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.075);
         overflow: hidden;
     }
 
@@ -184,6 +199,45 @@
         opacity: 42%;
         margin-right: -15px;
         font-size: 150px;
+    }
+
+    .containerSecondTier{
+        width: 33%;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .listCoin{
+        display: flex;
+        justify-content: center;
+        margin-top: 110px;
+        width: 90%;
+        height: 520px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(260deg, #56a4fd 20%, #d3e8fd 100%);
+        overflow: hidden;
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        font-family: Jaldi, sans-serif;
+    }
+
+    .containerListCoint{
+        overflow: hidden;
+        overflow-y: scroll;
+        width: 99%;
+        height: 99%;
+    }
+    
+    /* chrome, safari */
+    .containerListCoint::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* firefox */
+    .containerListCoint {
+        scrollbar-width: none;
     }
 
 </style>

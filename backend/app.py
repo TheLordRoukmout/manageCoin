@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 from scriptData import get_user_from_json
 from logInScript import checkLog  # La fonction checkLog doit exister dans ce fichier
+from apiConnect import responApiJson
 
 app = Flask(__name__)
 CORS(app)
@@ -21,6 +22,11 @@ def get_data():
     users = get_user_from_json()  # Récupérer les utilisateurs depuis le fichier JSON
 
     return jsonify(users)
+
+@app.route('/api/coinlist', methods=['GET'])
+def get_coinlist():
+    coinlist = responApiJson()
+    return jsonify(coinlist)
 
 @app.route('/api/login', methods=['POST'])
 def login():
