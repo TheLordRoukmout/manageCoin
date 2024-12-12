@@ -18,9 +18,9 @@
 
     function posNeg(percent) {
     if (percent >= 0) {
-        return 'green';  // Retourne "green" si positif
+        return '#A3F23E';  // Retourne "green" si positif
     } else {
-        return 'red';  // Retourne "red" si négatif
+        return '#F23E5A';  // Retourne "red" si négatif
     }
 }
 
@@ -29,71 +29,101 @@
 {#if loading}
     <p>Chargement...</p>
 {:else}
-<table>
-    <thead>
-        <tr>
-            <th>N°</th>
-            <th>Nom</th>
-            <th>Prix</th>                    
-            <th>% in 1H</th>
-            <th>% in 24H</th>                        
-            <th>% in 30D</th>
-        </tr>
-    </thead>
-    <tbody>
+
+    <div class="table">
+        <div class="table-header">
+            <div class="table-cell">N°</div>
+            <div class="table-cell">Nom</div>
+            <div class="table-cell">Prix</div>
+            <div class="table-cell">% in 1H</div>
+            <div class="table-cell">% in 24H</div>
+            <div class="table-cell">% in 30D</div>
+        </div>
         {#each coinList as coin}
-            <tr>
-                <td>{coin.cmc_rank}</td>
-                <td>{coin.name}</td>
-                <td>{coin.quote.USD.price.toFixed(2)} $</td>
-                <!-- Appliquer la couleur en fonction du signe -->
-                <td style="color: {posNeg(coin.quote.USD.percent_change_1h)};">
-                    {coin.quote.USD.percent_change_1h.toFixed(2)} %
-                </td>
-                <td style="color: {posNeg(coin.quote.USD.percent_change_24h)};">
-                    {coin.quote.USD.percent_change_24h.toFixed(2)} %
-                </td>
-                <td style="color: {posNeg(coin.quote.USD.percent_change_30d)};">
-                    {coin.quote.USD.percent_change_30d.toFixed(2)} %
-                </td>
-            </tr>
+            <div class="table-row">
+                <div class="table-cell" data-label="N°">{coin.cmc_rank}</div>
+                <div class="table-cell" data-label="Nom">{coin.name}</div>
+                <div class="table-cell" data-label="Prix">{coin.quote.USD.price.toFixed(2)} $</div>
+                <div class="table-cell" data-label="Prix" style="color: {posNeg(coin.quote.USD.percent_change_1h)};">{coin.quote.USD.percent_change_1h.toFixed(2)} %</div>
+                  
+                <div class="table-cell" data-label="Prix" style="color: {posNeg(coin.quote.USD.percent_change_1h)};">{coin.quote.USD.percent_change_24h.toFixed(2)} %</div>
+                <div class="table-cell" data-label="Prix" style="color: {posNeg(coin.quote.USD.percent_change_1h)};">{coin.quote.USD.percent_change_30d.toFixed(2)} %</div>
+
+            </div>
         {/each}
-    </tbody>
-</table>
+    </div>
+
 {/if}
 
 
 <style>
-
-table {
+.table {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    border-collapse: separate;  /* Permet de créer un espacement entre les lignes */
-    border-spacing: 0 5px;      /* Espacement entre les lignes verticalement */
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 8px;
 }
 
-th, td {
-    width: 200px;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ffffff00;   /* Bordure visible */
-}
-
-th {
-    background-color: #ffffff00;
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid #dddddd00;
     font-weight: bold;
-    
+    font-family: Jaldi, sans-serif;
+    color: #A3F23E;
 }
 
-td {
-    font-size: 0.9rem;
-    
+.table-row {
+    height: 40PX;
+    display: flex;
+    border-radius: 12px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 12px;
+    background-color: #323232;
+    border: 1px solid #70707050;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+    font-family: Jaldi, sans-serif;
+    color: #fff;
 }
 
-tr {
-    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.28);
+.table-cell {
+    flex: 1;
+    text-align: left;
     padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
+.table-row:hover {
+    background-color: #222222;
+}
 
-    
+@media (max-width: 768px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .table-header {
+        display: none;
+    }
+    .table-row {
+        display: block;
+    }
+    .table-cell {
+        display: block;
+        text-align: right;
+    }
+    .table-cell::before {
+        content: attr(data-label);
+        font-weight: bold;
+        float: left;
+    }
+}
+
 </style>
