@@ -8,7 +8,7 @@
     onMount(async () => {
         try {
             const response = await axios.get('http://127.0.0.1:5000/api/coinlist');
-            coinList = response.data.data;  // Accède à `data` pour obtenir la liste des coins
+            coinList = response.data.data; 
         } catch (error) {
             console.log("Erreur lors de la récupération de la liste.", error);
         } finally {
@@ -18,9 +18,9 @@
 
     function posNeg(percent) {
     if (percent >= 0) {
-        return '#A3F23E';  // Retourne "green" si positif
+        return '#A3F23E';
     } else {
-        return '#F23E5A';  // Retourne "red" si négatif
+        return '#F23E5A';
     }
 }
 

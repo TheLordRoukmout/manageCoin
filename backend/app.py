@@ -19,7 +19,7 @@ def home():
 #@jwt_required()  # Cette route est protégée par un token JWT
 def get_data():
     #current_user = get_jwt_identity()  # Récupérer l'utilisateur connecté à partir du token JWT
-    users = get_user_from_json()  # Récupérer les utilisateurs depuis le fichier JSON
+    users = get_user_from_json()
 
     return jsonify(users)
 
@@ -28,6 +28,7 @@ def get_coinlist():
     coinlist = responApiJson()
     return jsonify(coinlist)
 
+#Function et route à terminer
 @app.route('/api/login', methods=['POST'])
 def login():
     email = request.json.get("email", None)  # Récupérer l'email envoyé dans la requête

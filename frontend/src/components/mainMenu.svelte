@@ -1,17 +1,14 @@
 <script>
     import { onMount } from 'svelte';
 
-    let activeLink = ''; // Variable pour l'URL active
+    let activeLink = '';
 
-    // Cette fonction s'exécutera après le montage côté client
     onMount(() => {
-        // Met à jour activeLink selon l'URL actuelle
         activeLink = window.location.pathname;
     });
 
-    // Fonction pour savoir si le lien est actif
     function setActive(link) {
-        activeLink = link; // Met à jour le lien actif
+        activeLink = link; 
     }
 </script>
 
@@ -50,12 +47,12 @@
 <style>
 .container_nav {
     width: 80px;
-    height: 100vh; /* Occupe toute la hauteur de la fenêtre */
+    height: 100vh;
     background-color: #323232;
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.58);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Assure une répartition égale de l'espace entre les éléments */
+    justify-content: space-between;
     align-items: center;
     overflow: hidden;
     border-radius: 0 40px 0 0;
@@ -66,7 +63,7 @@
     flex-direction: column;
     gap: 20px;
     margin-top: 50px;
-    flex-grow: 1; /* Cette section prendra la majeure partie de l'espace */
+    flex-grow: 1;
 }
 
 .nav_content_bot {
@@ -74,7 +71,7 @@
     flex-direction: column;
     gap: 20px;
     margin-bottom: 50px;
-    margin-top: auto; /* Pousse cette section en bas de l'écran */
+    margin-top: auto;
 }
 
 .nav_content_top a, .nav_content_bot a {
@@ -96,7 +93,7 @@
 }
 
 .nav_content_top a.active, .nav_content_bot a.active {
-    background-color: #A3F23E; /* Lien actif */
+    background-color: #A3F23E;
     color: white;
 }
 
